@@ -1,4 +1,4 @@
-package hello.springtx;
+package hello.springtx.apply;
 
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
@@ -13,7 +13,7 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 
 @Slf4j
 @SpringBootTest
-public class apply {
+public class TxBasicTest {
 
     @Autowired
     BasicService basicService;
