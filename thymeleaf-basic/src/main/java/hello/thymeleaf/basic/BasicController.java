@@ -19,7 +19,7 @@ import java.util.Map;
 public class BasicController {
     @GetMapping("/text-basic")
     public String textBasic(Model model) {
-        model.addAttribute("data", "Hello <b>Spring!</b>");
+        model.addAttribute("data", "Hello Spring!");
         return "basic/text-basic";
     }
 
