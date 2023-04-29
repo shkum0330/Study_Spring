@@ -17,7 +17,7 @@ import java.sql.SQLException;
 @Slf4j
 @RequiredArgsConstructor
 public class MemberServiceV3_2 {
-    private final TransactionTemplate txTemplate;
+   private final TransactionTemplate txTemplate;
    private final MemberRepositoryV3 memberRepository;
 
    public MemberServiceV3_2(PlatformTransactionManager transactionManager,MemberRepositoryV3 memberRepository){

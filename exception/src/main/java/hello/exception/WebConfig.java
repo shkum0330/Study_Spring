@@ -30,7 +30,7 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     // @Bean
-    public FilterRegistrationBean logfilter(){
+     public FilterRegistrationBean logfilter(){
         FilterRegistrationBean<Filter> filterRegistrationBean=new FilterRegistrationBean<>();
 
         filterRegistrationBean.setFilter(new LogFilter());
@@ -46,4 +46,5 @@ public class WebConfig implements WebMvcConfigurer {
         resolvers.add(new MyHandlerExceptionResolver());
         resolvers.add(new UserHandlerExceptionResolver());
     }
+
 }
