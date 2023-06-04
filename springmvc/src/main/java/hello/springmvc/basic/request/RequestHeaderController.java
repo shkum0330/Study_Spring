@@ -15,7 +15,6 @@ import java.util.Locale;
 @Slf4j
 @RestController
 public class RequestHeaderController {
-
     @RequestMapping("/headers")
     public String headers(HttpServletRequest request, HttpServletResponse response, HttpMethod httpMethod, Locale locale,
                           @RequestHeader MultiValueMap headerMap, @RequestHeader("host") String host,
