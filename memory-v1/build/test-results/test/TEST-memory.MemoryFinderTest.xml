@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="memory.MemoryFinderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-08T16:58:15" hostname="sehyunui-MacBookPro.local" time="0.046">
+  <properties/>
+  <testcase name="get()" classname="memory.MemoryFinderTest" time="0.046"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
