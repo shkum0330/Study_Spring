@@ -37,6 +37,7 @@ public class OrderSimpleApiController {
     public List<OrderSimpleQueryDto> ordersV4(){
         return orderSimpleQueryRepository.findOrderDtos();
     }
+
     @Data
     static class SimpleOrderDto{
         private Long orderId;

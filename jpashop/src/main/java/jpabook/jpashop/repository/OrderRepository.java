@@ -1,9 +1,9 @@
 package jpabook.jpashop.repository;
 
-import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.*;
 import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderSearch;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.support.QuerydslJpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -18,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderRepository {
     private final EntityManager em;
+    private final QuerydslJpaRepository querydslJpaRepository;
 
     public void save(Order order){
         em.persist(order);
@@ -90,4 +91,17 @@ public class OrderRepository {
             return query.getResultList();
     }
 
+    public List<Order> findAllWithItem(){
+        return em.createQuery("select distinct o from Order o" +
+                " join fetch o.member" +
+                " join fetch o.delivery d" +
+                " join fetch o.orderItems oi" +
+                " join fetch oi.item i",Order.class).getResultList();
+    }
+    public List<Order> findAllWithMemberDelivery(int offset, int limit){
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d",Order.class).setFirstResult(offset).setMaxResults(limit).getResultList();
+    }
 }

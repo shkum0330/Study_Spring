@@ -2,6 +2,7 @@ package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.repository.MemberRepository;
+import jpabook.jpashop.repository.MemberRepository2;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.List;
 public class MemberService {
 
     private final MemberRepository memberRepository;
-
+    private final MemberRepository2 memberRepository2;
 
     @Transactional // 우선권 가짐. 기본값 false
     public Long join(Member member){
@@ -34,6 +35,9 @@ public class MemberService {
     }
     public Member findOne(Long memberId) {
         return memberRepository.findOne(memberId);
+    }
+    public List<Member> findOne(String name) {
+        return memberRepository2.findByName(name);
     }
     @Transactional
     public void update(Long id, String name){
