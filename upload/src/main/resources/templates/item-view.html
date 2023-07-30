@@ -11,8 +11,7 @@
     상품명: <span th:text="${item.itemName}">상품명</span><br/>
     첨부파일: <a th:if="${item.attachFile}" th:href="|/attach/${item.id}|"
              th:text="${item.getAttachFile().getUploadFileName()}" /><br/>
-    <img th:each="imageFile : ${item.imageFiles}" th:src="|/images/$
-{imageFile.getStoreFileName()}|" width="300" height="300"/>
+    <img th:each="imageFile : ${item.imageFiles}" th:src="|/images/${imageFile.getStoreFileName()}|" width="300" height="300"/>
 </div> <!-- /container -->
 </body>
 </html>

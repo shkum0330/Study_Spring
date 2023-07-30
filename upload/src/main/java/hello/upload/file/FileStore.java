@@ -29,8 +29,9 @@ public class FileStore { // 파일 저장과 관련된 업무 처리
     }
 
     public UploadFile storeFile(MultipartFile multipartFile) throws IOException {
-        if(multipartFile.isEmpty()) return null;
-
+        if(multipartFile.isEmpty()) {
+            return null;
+        }
         String originalFilename=multipartFile.getOriginalFilename();
         String storeFileName=createStoreFileName(originalFilename);
         multipartFile.transferTo(new File(getFullPath(storeFileName)));
