@@ -14,4 +14,5 @@ public class TimeLogTemplate {
         long resultTime = endTime - startTime;
         log.info("resultTime={}", resultTime);
     }
+
 }

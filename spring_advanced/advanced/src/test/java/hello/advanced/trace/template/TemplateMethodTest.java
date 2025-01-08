@@ -14,6 +14,7 @@ public class TemplateMethodTest {
         logic1();
         logic2();
     }
+
     private void logic1(){
         long startTime=System.currentTimeMillis();
 

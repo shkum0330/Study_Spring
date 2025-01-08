@@ -18,10 +18,10 @@ public class OrderControllerV3 {
     public String request(String itemId){
         TraceStatus status=null;
         try{
-        status=trace.begin("OrderController.request()");
-        orderService.orderItem(itemId);
-        trace.end(status);
-        return "ok";
+            status=trace.begin("OrderController.request()");
+            orderService.orderItem(itemId);
+            trace.end(status);
+            return "ok";
         } catch (Exception e){
             trace.exception(status,e);
             throw e; // 예외를 꼭 다시 던져주어야 한다.

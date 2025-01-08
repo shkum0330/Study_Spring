@@ -12,11 +12,11 @@ public class OrderRepositoryV4 {
 
     private final LogTrace trace;
 
-    public void save(String itemId){
-        AbstractTemplate<Void> template=new AbstractTemplate<>(trace) {
+    public void save(String itemId) {
+        AbstractTemplate<Void> template = new AbstractTemplate<>(trace) {
             @Override
             protected Void call() {
-                if(itemId.equals("ex")){
+                if (itemId.equals("ex")) {
                     throw new IllegalStateException("예외 발생!");
                 }
                 sleep(1000);
@@ -26,10 +26,10 @@ public class OrderRepositoryV4 {
         template.execute("OrderRepository.save()");
     }
 
-    private void sleep(int millis){
-        try{
+    private void sleep(int millis) {
+        try {
             Thread.sleep(millis);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
