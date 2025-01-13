@@ -20,7 +20,6 @@ public class BeanPostProcessorTest {
         b.helloB();
 
         Assertions.assertThrows(NoSuchBeanDefinitionException.class,()->applicationContext.getBean(A.class));
-
     }
 
     @Slf4j
@@ -43,6 +42,7 @@ public class BeanPostProcessorTest {
             log.info("hello A");
         }
     }
+
     @Slf4j
     static class B{
         public void helloB(){

@@ -18,7 +18,6 @@ public class BasicTest {
         a.helloA();
 
         Assertions.assertThrows(NoSuchBeanDefinitionException.class,()->applicationContext.getBean(B.class));
-
     }
 
     @Slf4j

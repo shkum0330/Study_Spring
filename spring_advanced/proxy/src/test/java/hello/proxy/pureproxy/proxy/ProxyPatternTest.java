@@ -19,7 +19,7 @@ public class ProxyPatternTest {
 
     @Test
     void cacheProxyTest(){
-       Subject realSubject=new RealSubject();
+        Subject realSubject=new RealSubject();
         Subject cacheProxy=new CacheProxy(realSubject);
         ProxyPatternClient client=new ProxyPatternClient(cacheProxy);
         client.execute();
