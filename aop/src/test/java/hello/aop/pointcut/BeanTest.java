@@ -24,9 +24,9 @@ public class BeanTest {
     }
 
     @Aspect
-    static class BeanAspect{
+    static class BeanAspect {
         @Around("bean(orderService) || bean(*Repository)")
-        public Object doLog(ProceedingJoinPoint joinPoint) throws Throwable{
+        public Object doLog(ProceedingJoinPoint joinPoint) throws Throwable {
             log.info("[bean] {}", joinPoint.getSignature());
             return joinPoint.proceed();
         }

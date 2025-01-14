@@ -19,19 +19,18 @@ public class AtAnnotationTest {
     MemberService memberService;
 
     @Test
-    void success(){
+    void success() {
         log.info("memberService Proxy={}", memberService.getClass());
         memberService.hello("helloA");
     }
+
     @Slf4j
     @Aspect
-    static class AtAnnotationAspect{
-
+    static class AtAnnotationAspect {
         @Around("@annotation(hello.aop.member.annotation.MethodAop)")
-        public Object doAtAnnotation(ProceedingJoinPoint joinPoint) throws Throwable{
+        public Object doAtAnnotation(ProceedingJoinPoint joinPoint) throws Throwable {
             log.info("[@annotation] {}", joinPoint.getSignature());
             return joinPoint.proceed();
         }
-
     }
 }

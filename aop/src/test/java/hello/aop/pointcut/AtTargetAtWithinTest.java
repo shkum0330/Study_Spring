@@ -20,46 +20,52 @@ public class AtTargetAtWithinTest {
     Child child;
 
     @Test
-    void success(){
+    void success() {
         log.info("child Proxy={}", child.getClass());
         child.childMethod();
         child.parentMethod();
     }
 
-    static class Config{
+    static class Config {
         @Bean
-        public Parent parent(){
+        public Parent parent() {
             return new Parent();
         }
+
         @Bean
-        public Child child(){
+        public Child child() {
             return new Child();
         }
+
         @Bean
-        public AtTargetAtWithinAspect atTargetAtWithinAspect(){
+        public AtTargetAtWithinAspect atTargetAtWithinAspect() {
             return new AtTargetAtWithinAspect();
         }
     }
+
     static class Parent {
-        public void parentMethod(){} //부모에만 있는 메서드
+        public void parentMethod() {
+        } //부모에만 있는 메서드
     }
+
     @ClassAop
     static class Child extends Parent {
-        public void childMethod(){}
+        public void childMethod() {
+        }
     }
 
     @Slf4j
     @Aspect
-    static class AtTargetAtWithinAspect{
+    static class AtTargetAtWithinAspect {
         //@target: 인스턴스 기준으로 모든 메서드의 조인 포인트를 선정, 부모 타입의 메서드도 적용
         @Around("execution(* hello.aop..*(..)) && @target(hello.aop.member.annotation.ClassAop)")
-        public Object atTarget(ProceedingJoinPoint joinPoint) throws Throwable{
+        public Object atTarget(ProceedingJoinPoint joinPoint) throws Throwable {
             log.info("[@target] {}", joinPoint.getSignature());
             return joinPoint.proceed();
         }
 
         @Around("execution(* hello.aop..*(..)) && @within(hello.aop.member.annotation.ClassAop)")
-        public Object atWithin(ProceedingJoinPoint joinPoint) throws Throwable{
+        public Object atWithin(ProceedingJoinPoint joinPoint) throws Throwable {
             log.info("[@within] {}", joinPoint.getSignature());
             return joinPoint.proceed();
         }

@@ -14,7 +14,7 @@ public class ExamTest {
     ExamService examService;
 
     @Test
-    void test(){
+    void test() {
         for (int i = 0; i < 5; i++) {
             examService.request("data" + i);
         }

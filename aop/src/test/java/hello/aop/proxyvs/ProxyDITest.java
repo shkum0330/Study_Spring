@@ -21,7 +21,7 @@ public class ProxyDITest {
     MemberServiceImpl memberServiceImpl; //JDK 동적 프록시 X, CGLIB OK
 
     @Test
-    void go(){
+    void go() {
         log.info("memberService class={}", memberService.getClass());
         log.info("memberServiceImpl class={}", memberServiceImpl.getClass());
         memberServiceImpl.hello("hello");
